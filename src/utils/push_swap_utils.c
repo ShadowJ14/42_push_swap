@@ -6,11 +6,40 @@
 /*   By: lprates <lprates@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 19:21:20 by lprates           #+#    #+#             */
-/*   Updated: 2021/10/03 02:21:41 by lprates          ###   ########.fr       */
+/*   Updated: 2021/10/10 20:08:11 by lprates          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	pswap_atoi(const char *str)
+{
+	long long	ret;
+	int			sign;
+
+	ret = 0;
+	sign = 1;
+	while (*str == '\t' || *str == '\n' || *str == '\v'
+		|| *str == '\f' || *str == '\r' || *str == ' ')
+		str++;
+	if (*str == '-')
+		sign *= -1;
+	if (*str == '-')
+		str++;
+	else if (*str == '+')
+		str++;
+	while ('0' <= *str && *str <= '9')
+	{
+		ret = ret * 10 + (sign * (*(str++) - '0'));
+		if (ret > 2147483647)
+			error_handler(-2);
+		if (ret < -2147483648)
+			error_handler(-2);
+	}
+	if ((*str && ft_isascii(*str)) || (*str && !ft_isdigit(*str)))
+		error_handler(-2);
+	return (ret);
+}
 
 void	swap_handler(t_stack *stacks, char *stk)
 {
