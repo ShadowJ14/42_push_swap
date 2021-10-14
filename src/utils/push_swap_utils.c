@@ -85,7 +85,7 @@ void	rotate_handler(t_stack *stacks, char *stk)
 int	check_stack(t_stack *stacks, int current)
 {
 	int	tmp;
-	
+
 	tmp = stacks->size_b;
 	while (tmp-- > 0)
 		if (stacks->stack_b[tmp] > current)
@@ -102,11 +102,11 @@ void	sorting_test(t_stack *stacks)
 	i = -1;
 	tmp = 0;
 	j = stacks->size_b;
-	while(++i < stacks->size_a)
+	while (++i < stacks->size_a)
 		if (tmp < stacks->stack_a[i])
 			tmp = stacks->stack_a[i];
 	tmp /= 2;
-	while(--i > 0)
+	while (--i > 0)
 	{
 		if (tmp > stacks->stack_a[0])
 		{

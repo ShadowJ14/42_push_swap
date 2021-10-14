@@ -14,7 +14,7 @@
 
 t_stack	*init_stacks(int argc)
 {
-	t_stack *stacks;
+	t_stack	*stacks;
 
 	stacks = malloc(sizeof(t_stack));
 	if (!stacks)
