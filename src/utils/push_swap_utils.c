@@ -6,13 +6,13 @@
 /*   By: lprates <lprates@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 19:21:20 by lprates           #+#    #+#             */
-/*   Updated: 2021/10/16 14:33:04 by lprates          ###   ########.fr       */
+/*   Updated: 2021/10/17 06:45:53 by lprates          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	pswap_atoi(const char *str)
+int	pswap_atoi(const char *str, t_stack *stacks)
 {
 	long long	ret;
 	int			sign;
@@ -28,16 +28,16 @@ int	pswap_atoi(const char *str)
 		str++;
 	else if (*str == '+')
 		str++;
-	while ('0' <= *str && *str <= '9')
+	if (!*str)
+		error_handler(-2, stacks);
+	while (*str >= '0' && *str <= '9')
 	{
 		ret = ret * 10 + (sign * (*(str++) - '0'));
-		if (ret > 2147483647)
-			error_handler(-2);
-		if (ret < -2147483648)
-			error_handler(-2);
+		if (ret > 2147483647 || ret < -2147483648)
+			error_handler(-2, stacks);
 	}
 	if ((*str && ft_isascii(*str)) || (*str && !ft_isdigit(*str)))
-		error_handler(-2);
+		error_handler(-2, stacks);
 	return (ret);
 }
 

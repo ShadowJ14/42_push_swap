@@ -6,7 +6,7 @@
 /*   By: lprates <lprates@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 16:06:19 by lprates           #+#    #+#             */
-/*   Updated: 2021/10/16 15:07:07 by lprates          ###   ########.fr       */
+/*   Updated: 2021/10/17 06:45:06 by lprates          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	check_repetition(t_stack *stacks)
 	i = 0;
 	while (++i < stacks->size_a)
 		if (stacks->sorted[i - 1] == stacks->sorted[i])
-			error_handler(-3);
+			error_handler(-3, stacks);
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: lprates <lprates@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 22:39:50 by lprates           #+#    #+#             */
-/*   Updated: 2021/10/10 19:15:00 by lprates          ###   ########.fr       */
+/*   Updated: 2021/10/17 06:50:46 by lprates          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ t_stack	*init_stacks(int argc)
 	stacks->stack_b = malloc(sizeof(int *) * stacks->size_a);
 	stacks->sorted = malloc(sizeof(int *) * stacks->size_a);
 	if (!stacks->stack_a || !stacks->stack_b || !stacks->sorted)
-		exit(-2);
+		clean_exit(-2, stacks);
 	return (stacks);
 }
