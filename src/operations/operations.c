@@ -6,7 +6,7 @@
 /*   By: lprates <lprates@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 22:47:13 by lprates           #+#    #+#             */
-/*   Updated: 2021/10/10 16:49:15 by lprates          ###   ########.fr       */
+/*   Updated: 2021/10/16 17:01:52 by lprates          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	swap_stack(int *stack)
 {
-	if (stack[1])
-		swap(&stack[0], &stack[1]);
+	swap(&stack[0], &stack[1]);
 	return ;
 }
 

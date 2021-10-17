@@ -6,7 +6,7 @@
 /*   By: lprates <lprates@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 16:06:19 by lprates           #+#    #+#             */
-/*   Updated: 2021/10/10 19:15:35 by lprates          ###   ########.fr       */
+/*   Updated: 2021/10/16 15:07:07 by lprates          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,14 @@ void	quicksort(int start, int end, int *a)
 	quicksort(j + 1, end, a);
 }
 
-int	check_sorted(t_stack *stacks)
+int	check_sorted(int *stack, int size)
 {
 	int	i;
 
-	i = 1;
-	while (i < stacks->size_a)
-	{
-		if (stacks->stack_a[i - 1] > stacks->stack_a[i])
+	i = 0;
+	while (++i < size)
+		if (stack[i - 1] > stack[i])
 			return (0);
-		i++;
-	}
 	return (1);
 }
 
@@ -56,13 +53,10 @@ void	check_repetition(t_stack *stacks)
 {
 	int	i;
 
-	i = 1;
-	while (i < stacks->size_a)
-	{
+	i = 0;
+	while (++i < stacks->size_a)
 		if (stacks->sorted[i - 1] == stacks->sorted[i])
 			error_handler(-3);
-		i++;
-	}
 	return ;
 }
 
@@ -86,4 +80,12 @@ void	ft_indexing(t_stack *stacks)
 			}
 		}
 	}
+}
+
+void	sort_picker(t_stack *stacks)
+{
+	if (stacks->size_a <= 5)
+		small_sort(stacks);
+	else
+		big_sort(stacks);
 }

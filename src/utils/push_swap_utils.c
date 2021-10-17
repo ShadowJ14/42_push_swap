@@ -6,7 +6,7 @@
 /*   By: lprates <lprates@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 19:21:20 by lprates           #+#    #+#             */
-/*   Updated: 2021/10/10 20:08:11 by lprates          ###   ########.fr       */
+/*   Updated: 2021/10/16 14:33:04 by lprates          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,32 +91,4 @@ int	check_stack(t_stack *stacks, int current)
 		if (stacks->stack_b[tmp] > current)
 			return (1);
 	return (0);
-}
-
-void	sorting_test(t_stack *stacks)
-{
-	int	i;
-	int	tmp;
-	int	j;
-
-	i = -1;
-	tmp = 0;
-	j = stacks->size_b;
-	while (++i < stacks->size_a)
-		if (tmp < stacks->stack_a[i])
-			tmp = stacks->stack_a[i];
-	tmp /= 2;
-	while (--i > 0)
-	{
-		if (tmp > stacks->stack_a[0])
-		{
-			if (check_stack(stacks, stacks->stack_a[0]))
-				while (stacks->stack_a[0] > stacks->stack_b[0] && j--)
-					rotate_handler(stacks, "rb");
-			push_top(stacks, "pb");
-		}
-		else
-			rotate_handler(stacks, "ra");
-		j = stacks->size_b;
-	}
 }
