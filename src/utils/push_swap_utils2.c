@@ -6,7 +6,7 @@
 /*   By: lprates <lprates@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 16:06:19 by lprates           #+#    #+#             */
-/*   Updated: 2021/10/17 07:55:15 by lprates          ###   ########.fr       */
+/*   Updated: 2021/10/17 10:20:38 by lprates          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	check_sorted(int *stack, int size)
 	return (1);
 }
 
-void	check_repetition(t_stack *stacks)
+static void	check_repetition(t_stack *stacks)
 {
 	int	i;
 
@@ -80,12 +80,4 @@ void	ft_indexing(t_stack *stacks)
 			}
 		}
 	}
-}
-
-void	sort_picker(t_stack *stacks)
-{
-	if (stacks->size_a <= 5)
-		small_sort(stacks);
-	else
-		big_sort(stacks);
 }

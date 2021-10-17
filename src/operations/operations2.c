@@ -6,20 +6,11 @@
 /*   By: lprates <lprates@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 12:12:49 by lprates           #+#    #+#             */
-/*   Updated: 2021/10/17 06:14:31 by lprates          ###   ########.fr       */
+/*   Updated: 2021/10/17 10:21:09 by lprates          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	swap(int *a, int *b)
-{
-	int	temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
 
 static void	trinity_sort(t_stack *stacks)
 {
@@ -57,7 +48,7 @@ static void	four_five_sort(t_stack *stacks)
 	smart_rotate(stacks, 0);
 }
 
-void	big_sort(t_stack *stacks)
+static void	big_sort(t_stack *stacks)
 {
 	int	size;
 	int	num;
@@ -83,7 +74,7 @@ void	big_sort(t_stack *stacks)
 	}
 }
 
-void	small_sort(t_stack *stacks)
+static void	small_sort(t_stack *stacks)
 {
 	if (stacks->size_a == 2)
 		swap_handler(stacks, "sa");
@@ -91,4 +82,12 @@ void	small_sort(t_stack *stacks)
 		trinity_sort(stacks);
 	else
 		four_five_sort(stacks);
+}
+
+void	sort_picker(t_stack *stacks)
+{
+	if (stacks->size_a <= 5)
+		small_sort(stacks);
+	else
+		big_sort(stacks);
 }

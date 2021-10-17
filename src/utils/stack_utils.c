@@ -6,13 +6,13 @@
 /*   By: lprates <lprates@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 19:05:37 by lprates           #+#    #+#             */
-/*   Updated: 2021/10/17 06:18:25 by lprates          ###   ########.fr       */
+/*   Updated: 2021/10/17 10:23:21 by lprates          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	closest_above(t_stack *stacks, int n)
+static int	closest_above(t_stack *stacks, int n)
 {
 	int	k;
 	int	i;
@@ -30,7 +30,7 @@ int	closest_above(t_stack *stacks, int n)
 	return (k);
 }
 
-void	run_n(char *op, t_stack *stacks, int n)
+static void	run_n(char *op, t_stack *stacks, int n)
 {
 	if (n <= 0)
 		return ;
