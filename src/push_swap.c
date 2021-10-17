@@ -6,25 +6,15 @@
 /*   By: lprates <lprates@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 17:39:11 by lprates           #+#    #+#             */
-/*   Updated: 2021/10/17 06:56:10 by lprates          ###   ########.fr       */
+/*   Updated: 2021/10/17 07:55:41 by lprates          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_handler(int error, t_stack *stacks)
-{
-	ft_putstr_fd("Error\n", 2);
-	free(stacks->stack_a);
-	free(stacks->stack_b);
-	free(stacks->sorted);
-	free(stacks);
-	exit(error);
-}
-
 void	clean_exit(int code, t_stack *stacks)
 {
-	if( stacks->stack_a)
+	if (stacks->stack_a)
 		free(stacks->stack_a);
 	if (stacks->stack_b)
 		free(stacks->stack_b);
@@ -42,7 +32,7 @@ int	main(int argc, char *argv[])
 
 	count = -1;
 	if (argc < 2)
-		exit(1);
+		exit(0);
 	stacks = init_stacks(argc);
 	while (++count < argc - 1)
 	{
